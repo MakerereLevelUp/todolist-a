@@ -1,0 +1,17 @@
+@(tasks: java.util.List[models.Task])
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>todolist</title>
+</head>
+<body>
+<ul>
+    @for(task <- tasks){
+    <li>@task.getTaskName - @task.getDescription</li>
+
+    }
+</ul>
+</body>
+</html>
+
