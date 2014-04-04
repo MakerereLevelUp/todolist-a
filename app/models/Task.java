@@ -1,29 +1,48 @@
 package models;
 
-import java.util.ArrayList;
+import play.data.validation.Constraints;
+import play.db.ebean.Model;
+
+import javax.persistence.Entity;
 import java.util.List;
 
+@Entity
+public class Task extends Model{
+    public Long id;
 
-public class Task{
-   String taskName;
-   String description;
+   @Constraints.Required
+   public String taskName;
 
-    public Task(String taskName,String description){
-        this.taskName = taskName;
-        this.description = description;
-    }
+   @Constraints.Required
+   public String description;
 
-    public String myTask()
-    {
-        return (taskName+" "+description);
-    }
-    public  String getTaskName()
+   public static Finder<Long,Task> find = new Finder(Long.class, Task.class);
+
+   public Task(String name, String description) {
+       //this.id = id;
+       this.taskName = name;
+       this.description = description;
+   }
+
+   public  String getTaskName()
     {
         return taskName;
     }
-    public String getDescription()
+   public String getDescription()
     {
         return description;
     }
+
+   public static List<Task> all() {
+        return find.all();
+   }
+   public  static void createTask(Task task)
+   {
+        task.save();
+   }
+   public static void deleteTask(Long id)
+   {
+        find.ref(id).delete();
+   }
 
 }

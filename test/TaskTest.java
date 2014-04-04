@@ -13,6 +13,6 @@ public class TaskTest {
     public void testTask()
     {
         Task task = new Task("Dancing","Go parting");
-        assertThat(task.myTask(),is("Dancing Go parting"));
+        assertThat(task.getTaskName(),is("Dancing"));
     }
 }
