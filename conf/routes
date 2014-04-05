@@ -4,9 +4,10 @@
 
 # Home page
 GET     /                           controllers.Application.index()
-#GET     /todos                      controllers.Application.todoList()
-#GET     /objecttasks                controllers.Application.showTasks()
-GET     /tasks                       controllers.Application.tasks()
+#GET     /todos                     controllers.Application.todoList()
+#GET     /objecttasks               controllers.Application.showTasks()
+GET     /tasks                      controllers.Application.tasks()
+GET     /api/tasks                  controllers.TasksAPIController.allTasks()
 
 POST    /tasks                      controllers.Application.newTask()
 POST    /tasks/:id/delete           controllers.Application.deleteTask(id: Long)
