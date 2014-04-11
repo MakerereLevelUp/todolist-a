@@ -11,7 +11,7 @@ public class Task extends Model{
     public Long id;
 
    @Constraints.Required
-   public String taskName;
+   public String label;
 
    @Constraints.Required
    public String description;
@@ -20,13 +20,13 @@ public class Task extends Model{
 
    public Task(String name, String description) {
        //this.id = id;
-       this.taskName = name;
+       this.label = name;
        this.description = description;
    }
 
    public  String getTaskName()
     {
-        return taskName;
+        return label;
     }
    public String getDescription()
     {
